@@ -93,4 +93,9 @@ export class SuplosComponent implements OnInit {
     }
 
   }
+  isEnter(event: KeyboardEvent){
+    if(event.keyCode == 13){
+      this.confirmarFiltro();
+    }
+  }
 }
