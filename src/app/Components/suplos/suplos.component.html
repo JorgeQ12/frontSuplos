@@ -1,51 +1,68 @@
-<!-- <div class="contentFiltro col-lg-4">
-    <div class="col-lg-10 mb-5 mt-5">
+<div class="container-fluid">
+    <div class="col-12 col-sm-6">
+        <div class="row col-10 col-sm-12">
+            <input type="text" [(ngModel)]="txtFiltro"  id="txtFiltro" class="form-control spaceInputF col-8 col-sm-6" placeholder="¿Qué imagen estas buscando?" />
+            <button class="btn" (click)="confirmarFiltro()" style=" cursor: pointer;  ">
+              <i>
+                <svg width="18" height="19" viewBox="0 0 18 19" fill="none"style="margin-top: 5px;" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"d="M1.15926 6.89191C1.15926 3.73095 3.73076 1.15944 6.89173 1.15944C10.0531 1.15944 12.6238 3.73095 12.6238 6.89191C12.6238 10.0529 10.0531 12.6236 6.89173 12.6236C3.73076 12.6236 1.15926 10.0529 1.15926 6.89191ZM17.5375 17.5779L11.9234 11.5958C13.0765 10.363 13.7844 8.70911 13.7844 6.89191C13.7844 3.09149 10.6929 6.10352e-05 6.89173 6.10352e-05C3.0917 6.10352e-05 -0.00012207 3.09149 -0.00012207 6.89191C-0.00012207 10.6919 3.09131 13.7845 6.89173 13.7845C8.45892 13.7845 9.90425 13.258 11.0632 12.374L16.6906 18.3709C16.8055 18.4924 16.9594 18.5549 17.1141 18.5549C17.257 18.5549 17.3981 18.5025 17.5102 18.3979C17.7442 18.1783 17.7551 17.8119 17.5375 17.5779Z" fill="#696969" />
+                </svg>
+              </i>
+            </button>
+        </div>
+        <div class="col-10 col-sm-6 mt-4">
+          <i>
+            <svg width="58px" height="12px" viewBox="0 0 58 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+              <path d="M54,0 L2,0 C0.9,0 0,0.9 0,2 L21,33 C21,33.7 21.4,34.4 22,34.7 L22,62 L34,55 L34,34.7 C34.6,34.4 35,33.7 35,33 L56,2 C56,0.9 55.1,0 54,0 L54,0 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+              <path d="M7,4 L23,28" id="Shape" sketch:type="MSShapeGroup"></path>
+            </svg>
+          </i>
+          <span class="filtro ">Filtro</span>
+          <select [(ngModel)]="categoriSelect" id="filtros" name="filtros" class="form-control spaceInputF mt-2" (change)="filtroSelect()">
+              <option value="">Seleccione una categoria</option>
+              <option *ngFor="let categoriSelect of categoria" [ngValue]="categoriSelect">{{ categoriSelect }} </option>
+          </select>
+        </div>
+        <div class="col-10 col-sm-6 text-center ml-4 mb-4 mb-sm-0 mt-5">
+          <button class="btn btnCard" (click)="pagina(-1)">
+            Atras
+          </button>
+          <button class="btn btnCard ml-3" (click)="pagina(1)">
+            siguiente
+          </button>
+        </div>
     </div>
-    <div class="col-lg-10 justify-content-center">
-      <div class="space">
-        <img src="../assets/Ofertas.svg" alt="">
-        <span class="filtro">Filtro</span>
-      </div>  
-      <div class="mt-2">
-        <select id="filtros" name="filtros" class="form-control spaceInputF">
-          <option value="">Seleccione una categoria</option>
-          <option *ngFor="let categoriSelect of categoria" >{{ categoriSelect }} </option>
-        </select>
+    <div class="row col-8 cardImg">
+      <div *ngFor="let img of imgImg" class="col-md-4 mt-3 d-flex">
+        <div class="card">
+          <img [src]="img.largeImageURL" alt="" class="imgCards">
+          <div class="card-footer text-center">
+            <button class="btn btnCard" (click)="infoCard(img.id)">
+              Detalles
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div> -->
-
-<div class="container-fluid fondo">
-    <div class="row  mb-5 pb-5">
-        <div class="toolbar" role="banner">
-            <p class="textTool ml-3">Suplos</p>
-        </div>
-    </div>
-    <div class="col-6 fondo1">
-        <div class="col-6">
-            <input type="text" [(ngModel)]="txtFiltro"  id="txtFiltro" class="form-control spaceInputF" placeholder="¿Qué imagen estas buscando?" />
-            <div class="btnFiltro">
-                  <a class="btn" (click)="confirmarFiltro()" style=" cursor: pointer;  ">
-                    <i>
-                      <svg width="18" height="19" viewBox="0 0 18 19" fill="none"style="margin-top: 5px;" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"d="M1.15926 6.89191C1.15926 3.73095 3.73076 1.15944 6.89173 1.15944C10.0531 1.15944 12.6238 3.73095 12.6238 6.89191C12.6238 10.0529 10.0531 12.6236 6.89173 12.6236C3.73076 12.6236 1.15926 10.0529 1.15926 6.89191ZM17.5375 17.5779L11.9234 11.5958C13.0765 10.363 13.7844 8.70911 13.7844 6.89191C13.7844 3.09149 10.6929 6.10352e-05 6.89173 6.10352e-05C3.0917 6.10352e-05 -0.00012207 3.09149 -0.00012207 6.89191C-0.00012207 10.6919 3.09131 13.7845 6.89173 13.7845C8.45892 13.7845 9.90425 13.258 11.0632 12.374L16.6906 18.3709C16.8055 18.4924 16.9594 18.5549 17.1141 18.5549C17.257 18.5549 17.3981 18.5025 17.5102 18.3979C17.7442 18.1783 17.7551 17.8119 17.5375 17.5779Z" fill="#696969" />
-                      </svg>
-                    </i>
-                  </a>
+    <div *ngIf="detalles == true">
+      <div class="overlay">   
+        <div *ngFor="let img of imgDetalles" class="col-md-4 mt-3 d-flex">
+          <div class="card">
+            <img [src]="img.largeImageURL" alt="" class="">
+            <div class="ml-3">
+              <span > Detalles</span>
+              <p class="mt-3">{{img.views}} Vistas</p>
+              <p>{{img.likes}} Likes</p>
+              <p>Categorias: {{img.tags}}</p>
             </div>
-        
-        
+          </div>
+          <div style="margin-left: 10px;" class="BtonCerrarModal">
+            <button type="button" class="btnTopCierraModal" (click)="detalles = false" >
+              x
+            </button>
+          </div>
         </div>
-        <div class="col-6 mt-4">
-            <span class="filtro ml-4 ">Filtro</span>
-            <select [(ngModel)]="categoriSelect" id="filtros" name="filtros" class="form-control spaceInputF mt-2" (change)="filtroSelect()">
-                <option value="">Seleccione una categoria</option>
-                <option *ngFor="let categoriSelect of categoria" [ngValue]="categoriSelect">{{ categoriSelect }} </option>
-            </select>
-        </div>
-    </div>
-    <div class="col-4">
-        <p>hola</p>
+      </div>
     </div>
 </div>
 

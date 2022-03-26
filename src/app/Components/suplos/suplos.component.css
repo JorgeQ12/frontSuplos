@@ -1,17 +1,3 @@
-
-.toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    margin-bottom: auto;
-}
 .spaceInputF{
     font-family: 'Open Sans';
     font-style: normal !important;
@@ -21,12 +7,58 @@
     margin-left: 23px;
 }
 .filtro{
-    margin-left: 12px;
-    font-family: 'Open Sans';
+    margin-left: -18px;
+    font-family: 'OpenSans-bold';
     font-size: 16px;
     line-height: 25px;
 }
 .btnFiltro{
     margin-left: 311px;
     margin-top: -39px;
+}
+.cardImg{
+    margin-left: 30%;
+    margin-top: -238px;
+}
+.btnCard:hover{
+    color: #fff;
+    background-color: #1976d2;
+}
+.imgCards{
+    height: 100%;
+    width: 100%;
+}
+.overlay{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnTopCierraModal {
+    border: 0px;
+    border-radius: 50px;
+    font-size: 3px;
+    padding: 0px;
+    width: 44px;
+    height: 44px;
+    margin-top: 5px;
+    font-size: 20px
+}
+
+@media (max-width:426px){
+    .cardImg{
+        margin-left: 15%;
+        margin-top: 0px;
+    }
+}
+@media (min-width:427px) and (max-width:769px){
+    .cardImg{
+        margin-left: 30%;
+        margin-top: -310px;
+    }
 }

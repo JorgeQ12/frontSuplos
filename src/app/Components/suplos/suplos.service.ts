@@ -19,4 +19,10 @@ export class SuplosService{
     getImagenesCategory(busqueda1: string){
         return this.http.get(`${this.URL}&category=`+busqueda1)
     }
+    getImagenesPagina(busqueda2: string, page: number){
+        return this.http.get(`${this.URL}&category=`+busqueda2+`&page=`+page)
+    }
+    getImagenesSinCategory(page: number){
+        return this.http.get(`${this.URL}&page=`+page);
+    }
 }
